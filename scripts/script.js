@@ -82,13 +82,11 @@ const vote = async (proposal) => {
         receipt = transaction.wait(1);
 
         console.log("Vote submitted successfully!");
-        notify_background.classList.add('success')
-        notify.textContent = "Vote Successful"
         console.log(notify.textContent)
+        updateNotifyUI("Vote Successful", "success")
 
     } catch (err) {
-        notify_background.classList.add('failed');
-        notify.textContent = err.data.message;
+        updateNotifyUI(err.data.message, "failed")
         console.log("Failed, reason: ", err.message);
     }
 }
@@ -109,4 +107,13 @@ const winning = async () => {
     //     console.log(err.data.message)
     // }
     
+}
+
+const updateNotifyUI = (message, status) => {
+    if(!message) return;
+    notify_background.classList.add(status);
+    notify.textContent = message;
+    setTimeout (() => {
+        notify_background.style.dsplay = 'none'
+    }, 3000)
 }

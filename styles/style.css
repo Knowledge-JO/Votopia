@@ -34,6 +34,10 @@ button:hover{
     cursor: pointer;
 }
 
+button {
+    border-radius: 30px;
+}
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -60,11 +64,12 @@ button:hover{
     display: flex;
     justify-content: center;
     width: 100%;
-    height: 800px;
+    height: 500px;
     /* margin-top: 150px; */
     margin-bottom: 50px;
     background: url(/images/loop2.gif);
     background-size: cover;
+    justify-content: left;
 }
 .lead{
     margin: auto;
@@ -73,16 +78,14 @@ button:hover{
     border-radius: 30px;
     text-align: center;
     width: 800px;
-    text-shadow: 1px 4px 5px #141129;
+    /* text-shadow: 1px 4px 5px #141129; */
     font-weight: bold;
     font-size: large;
+    padding: 0 15px;
+    font-weight: bold;
 
 }
 
-/* .lead p{
-    margin: auto;
-    text-align: center;
-} */
 
 /* .vote-img{
     width: 600px;
@@ -182,6 +185,7 @@ button:hover{
     text-align: center;
     margin-bottom: 10px;
     font-size: 60%;
+    border-radius: 10px;
     display: none;
 }
 

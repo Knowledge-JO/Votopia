@@ -14,3 +14,9 @@
     }
 
 }
+
+@media (max-width: 500px) {
+    .lead {
+        text-align: left;
+    }
+}
