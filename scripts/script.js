@@ -4,7 +4,9 @@ import { votopiaABI } from "./ABI/contractABI.js"
 const voters_form = document.querySelector('#v-form');
 const wallet_btn = document.querySelector('.connect-wallet-btn');
 const notify = document.querySelector('.content');
+
 const notify_background = document.querySelector('.notify')
+let loader = document.getElementById('loader')
 const contractAddress = '0x90db67E14985c7f17cb7dC474c441534F95Ec653';
 
 const connected = true;
