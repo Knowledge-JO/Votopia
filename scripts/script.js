@@ -113,7 +113,4 @@ const updateNotifyUI = (message, status) => {
     if(!message) return;
     notify_background.classList.add(status);
     notify.textContent = message;
-    setTimeout (() => {
-        notify_background.style.dsplay = 'none'
-    }, 3000)
 }
