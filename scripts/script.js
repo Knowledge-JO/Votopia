@@ -9,6 +9,12 @@ const contractAddress = '0x90db67E14985c7f17cb7dC474c441534F95Ec653';
 
 const connected = true;
 
+window.addEventListener('load', () => {
+
+    loader.classList.add('remove-loader')
+
+})
+
 wallet_btn.addEventListener('click', async () => {
     let {truncatedAddr} = await connect_metamask()
     if (!truncatedAddr) return;
