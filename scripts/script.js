@@ -1,0 +1,81 @@
+import { ethers } from "./ethersJS/ethers-5.1.esm.min.js";
+import { votopiaABI } from "./ABI/contractABI.js"
+
+const voters_form = document.querySelector('#v-form');
+const wallet_btn = document.querySelector('.connect-wallet-btn');
+const notify = document.querySelector('.content');
+const notify_background = document.querySelector('.notify')
+const contractAddress = '0x90db67E14985c7f17cb7dC474c441534F95Ec653';
+
+const connected = true;
+
+wallet_btn.addEventListener('click', async () => {
+    let {truncatedAddr} = await connect_metamask()
+    if (!truncatedAddr) return;
+    wallet_btn.textContent = truncatedAddr;
+})
+
+voters_form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    await vote(voters_form.resources.value)
+})
+
+
+const connect_metamask = async () => {
+    try {
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        await provider.send("eth_requestAccounts", []);
+        const signer = await provider.getSigner();
+        const chainID = await signer.getChainId();
+        if( chainID !== 80001 ){
+            try{
+                await provider.send("wallet_switchEthereumChain", [{ chainId: `0x13881` },]);
+            } catch (err) {
+                console.log("Error requesting account switch: ", err)
+                return;
+            }
+        }
+        
+        const address = await signer.getAddress();
+
+        const truncatedAddr = address.slice(0, 4) + "..." + address.slice(-3)
+
+        return {truncatedAddr, signer, address}
+    } catch (err) {
+        console.log('Error connecting to metamask: ', err)
+    }
+}
+
+
+const vote = async (proposal) => {
+    try {
+        const {signer, address} = await connect_metamask()
+        let receipt;
+
+        const votopia = new ethers.Contract(contractAddress, votopiaABI, signer);
+        const voterInfo = await votopia.voters(address)
+
+        const hasVoted = voterInfo.anyvotes;
+        console.log(hasVoted)
+
+        if (hasVoted) {
+            console.log("Already voted");
+        } else {
+            console.log("Voting...");
+        }
+
+        const transaction = await votopia.vote(proposal);
+
+        receipt = transaction.wait(1);
+
+        console.log("Vote submitted successfully!");
+        notify_background.classList.add('success')
+        notify.textContent = "Vote Successful"
+        console.log(notify.textContent)
+
+    } catch (err) {
+        notify_background.classList.add('failed')
+        notify.textContent = err.data.message
+        console.log("Failed, reason: ", err.message);
+    }
+}

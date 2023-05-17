@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/skeleton.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="logo">Votopia</div>
+
+        <div class="connect-wallet">
+            <button class="connect-wallet-btn">connect-wallet</button>
+        </div>
+    </div>
+    <div class="hero-section">
+        <div class="lead">
+            <p>
+            Votopia is a decentralized voting application that provides a secure, 
+            tranparent and ease to user platform where members of the project
+            can vote and ensure that budgets, fundings are allocated to available resources for the success of the project
+            </p>
+            
+        </div>
+        <!-- <img src="/images/loop2.gif" alt="" class="vote-img"> -->
+    </div>
+    <div class="container">
+        
+        <div class="cards">
+            <div class="card card_1" data-aos="fade-up" data-aos-duration="3000">
+                <h2>Research Projects</h2>
+                <img src="/images/research.webp" alt="">
+                <p>With Research Projects, we aim to foster innovation and explore new frontiers. 
+                Members can vote on proposals that focus on groundbreaking research initiatives, 
+                seeking to push the boundaries of knowledge in our industry. By supporting Research Projects,
+                we invest in the future and nurture a culture of discovery within our organization.</p>
+            </div>
+            <div class="card card_2" data-aos="fade-up" data-aos-duration="3000">
+                <h2>Operational Expenses</h2>
+                <img src="/images/operation.webp" alt="">
+                <p>Operational Expenses play a critical role in the day-to-day functioning of our organization. 
+                Voting on Operational Expenses proposals enables members to make decisions regarding the allocation 
+                of resources for essential activities such as infrastructure, staffing, and logistical needs.
+                These decisions directly impact our operational efficiency and sustainability.</p>
+            </div>
+            <div class="card card_3" data-aos="fade-up" data-aos-duration="3000">
+                <h2>Capital Expenditure</h2>
+                <img src="/images/capital.jpg" alt="">
+                <p> Capital expenditures (CAPEX) involve significant investments in long-term assets that are essential for a company's operations.
+                    Voting on captital expenditure proposal enables members to make decisions regarding allocation of resources
+                    for essential activities such as purchase or upgrade Equipments, infrastructure, machinery which has a long term impact on the business.
+                </p>
+            </div>
+            <div class="card card_4" data-aos="fade-up" data-aos-duration="3000">
+                <h2> Market Research</h2>
+                <img src="/images/market-research.png" alt="">
+                <p>Market Research gives us a demographic information about the market of our product for gaining customers.
+                    Conducting market research helps us understand the demand, market size E.T.C of our product.
+                    Voting for Market Research proposal enables members to make decisions regarding the allocation of
+                    resources for conduction of market research which impacts our understanding of cusumer behaviour 
+                    and improves our business idea.
+                </p>
+            </div>
+
+            <div class="card card_5" data-aos="fade-up" data-aos-duration="3000">
+                <h2>Technological Advancments</h2>
+                <img src="/images/technology.webp" alt="">
+                <p>Technological advancements allows us
+                    become cost efficient and effective, this will also provide a less seemless experience in handling
+                    day to day tasks allowing us save time and cost. 
+                    Voting for technology Equipment proposal enables members to make decisions regarding the application of
+                    resources which will significantly impact our workflow and allow us better compete with established companies.
+
+                </p>
+            </div>
+
+            <div class="card card_6" data-aos="fade-up" data-aos-duration="3000">
+                <h2>Human Resources</h2>
+                <img src="/images/human-resources.webp" alt="">
+                <p>Human resources takes care of finding, recruiting, screening and training job applicants.
+                    voting for Human Resource proposal enables members to make decisions regarding the application of resources
+                    towards human resources to establish and improve the organization's workforce which will provide the company
+                    a long term benefit in terms of workforce in return allows us compete with already established companies.
+                </p>
+            </div>
+            
+        </div>
+
+        <div class="form-">
+            <form action="" id="v-form">
+                <label for="resources">Choose a resource to vote for: </label>
+                <select name="resources" id="resources">
+                    <option value="0">Research Projects</option>
+                    <option value="1">Operational Resources</option>
+                    <option value="2">Captial Expenditures</option>
+                    <option value="3">Market Research</option>
+                    <option value="4">Technological Advancments</option>
+                    <option value="5">Human Resources</option>
+                </select>
+                <input type="submit" value="Vote">
+            </form>
+        </div>
+
+        <div class="notify-container">
+                <div class="notify">
+                   <p class="content"></p>
+                </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <p>© 2023 Knowledge. All rights reserved.</p>
+    </div>
+    
+<script src="/scripts/script.js" type="module"></script>
+<script>
+    AOS.init();
+</script>
+</body>
+</html>
