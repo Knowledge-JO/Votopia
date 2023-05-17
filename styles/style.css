@@ -30,6 +30,10 @@
     margin: 0 50px;
 }
 
+button:hover{
+    cursor: pointer;
+}
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -145,6 +149,7 @@
     color: #fff;
     background-color: #8dccc1;
     transition: background-color 0.5s;
+    cursor: pointer;
 }
 
 .footer{
@@ -160,6 +165,7 @@
     font-size: 70%;
 }
 
+
 .notify-container {
     width: 100%;
     display: flex;
@@ -167,11 +173,12 @@
 }
 
 .notify{
-    margin: auto;
+    position: relative;
+    left: -30px;
     background-color: #141129;
-    width: 200px;
+    padding: 5px;
     height: 30px;
-    margin-top: -40px;
+    margin-top: -69px;
     text-align: center;
     margin-bottom: 10px;
     font-size: 60%;
@@ -190,4 +197,32 @@
 .failed {
     display: flex;
     background-color: red;
+}
+
+.proposals-container{
+    width: 100%;
+    display: flex;
+    margin-bottom: 30px;
+}
+
+#proposals{
+    margin: auto;
+    color: #141129;
+    text-shadow: 1px 4px 5px #141129;
+    font-weight: bold;
+}
+
+
+.result-container{
+    display: flex;
+    justify-content: right;
+}
+
+.result-container button {
+    margin-top: -30px;
+    margin-bottom: 30px;
+}
+
+.check-result{
+    background-color: #8dccc1;
 }

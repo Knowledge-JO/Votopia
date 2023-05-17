@@ -4,12 +4,12 @@ import { votopiaABI } from "./ABI/contractABI.js"
 const voters_form = document.querySelector('#v-form');
 const wallet_btn = document.querySelector('.connect-wallet-btn');
 const notify = document.querySelector('.content');
-
-const notify_background = document.querySelector('.notify')
-let loader = document.getElementById('loader')
+const notify_background = document.querySelector('.notify');
+let loader = document.getElementById('loader');
+const result = document.querySelector('.check-result')
 const contractAddress = '0x90db67E14985c7f17cb7dC474c441534F95Ec653';
 
-const connected = true;
+const connected = false;
 
 window.addEventListener('load', () => {
 
@@ -28,6 +28,11 @@ voters_form.addEventListener('submit', async (e) => {
     await vote(voters_form.resources.value)
 })
 
+result.addEventListener ('click', async () => {
+    const name = await winning()
+    notify_background.classList.add('success')
+    notify.textContent = `Winning proposal is: ${name}`
+})
 
 const connect_metamask = async () => {
     try {
@@ -82,8 +87,26 @@ const vote = async (proposal) => {
         console.log(notify.textContent)
 
     } catch (err) {
-        notify_background.classList.add('failed')
-        notify.textContent = err.data.message
+        notify_background.classList.add('failed');
+        notify.textContent = err.data.message;
         console.log("Failed, reason: ", err.message);
     }
+}
+
+const winning = async () => {
+
+    // try {
+        const {signer} = await connect_metamask();
+    
+        const votopia = new ethers.Contract(contractAddress, votopiaABI, signer);
+
+        let name = await votopia.winningName();
+
+        let winner =  ethers.utils.parseBytes32String(name);
+
+        return winner;
+    // } catch (err){
+    //     console.log(err.data.message)
+    // }
+    
 }
