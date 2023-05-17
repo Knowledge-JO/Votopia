@@ -153,6 +153,7 @@
     height: 50px;
     color: #fff;
     display: flex;
+    justify-content: space-between;
 }
 
 .footer p {
